@@ -3,7 +3,7 @@ on: workflow_dispatch
   # push:
   #   branches: [ main ]
 jobs:
-  build_Job1:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
