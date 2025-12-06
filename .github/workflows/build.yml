@@ -13,7 +13,8 @@ jobs:
         run: echo "Building project..."
 
       - name: Trigger Deploy Workflow
-        uses: peter-evans/workflow-dispatch@v1
+        uses: peter-evans/repository-dispatch@v3
         with:
-          workflow: deploy.yml
-          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+          event-type: trigger-deploy
+          client-payload: '{"ref":"master"}'
