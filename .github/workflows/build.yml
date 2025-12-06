@@ -2,6 +2,10 @@ name: Build Workflow
 on: workflow_dispatch
   # push:
   #   branches: [ main ]
+permissions:
+  contents: write        # allows creating dispatch events
+  actions: write         # allows triggering other workflows
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,4 +21,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           event-type: trigger-deploy
-          client-payload: '{"ref":"master"}'
+          client-payload: '{"environment":"staging"}'
